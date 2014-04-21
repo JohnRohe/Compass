@@ -51,11 +51,11 @@ public class CompassView extends View {
 
     /** Various dimensions and other drawing-related constants. */
     private static final float NEEDLE_WIDTH = 6;
-    private static final float NEEDLE_HEIGHT = 125;
+    private static final float NEEDLE_HEIGHT = 60;
     private static final int NEEDLE_COLOR = Color.RED;
     private static final float TICK_WIDTH = 2;
     private static final float TICK_HEIGHT = 10;
-    private static final float DIRECTION_TEXT_HEIGHT = 84.0f;
+    private static final float DIRECTION_TEXT_HEIGHT = 45.0f;
     private static final float PLACE_TEXT_HEIGHT = 22.0f;
     private static final float PLACE_PIN_WIDTH = 14.0f;
     private static final float PLACE_TEXT_LEADING = 4.0f;
@@ -198,6 +198,7 @@ public class CompassView extends View {
         float pixelsPerDegree = getWidth() / 90.0f;
         float centerX = getWidth() / 2.0f;
         float centerY = getHeight() / 2.0f;
+        
 
         canvas.save();
         canvas.translate(-mAnimatedHeading * pixelsPerDegree + centerX, centerY);
@@ -214,7 +215,7 @@ public class CompassView extends View {
         canvas.restore();
 
         mPaint.setColor(NEEDLE_COLOR);
-        drawNeedle(canvas, false);
+        //drawNeedle(canvas, false);
         drawNeedle(canvas, true);
     }
 
@@ -237,9 +238,14 @@ public class CompassView extends View {
                 String direction = mDirections[MathUtils.mod(i, mDirections.length)];
                 mPaint.getTextBounds(direction, 0, direction.length(), mTextBounds);
 
+                /*
                 canvas.drawText(direction,
                         i * degreesPerTick * pixelsPerDegree - mTextBounds.width() / 2,
-                        mTextBounds.height() / 2, mPaint);
+                        mTextBounds.height() / 2, mPaint);*/
+                
+                canvas.drawText(direction,
+                        i * degreesPerTick * pixelsPerDegree - mTextBounds.width() / 2,
+                        160, mPaint);
             } else {
                 // Draw a tick mark for the odd indices.
                 canvas.drawLine(i * degreesPerTick * pixelsPerDegree, -TICK_HEIGHT / 2, i
