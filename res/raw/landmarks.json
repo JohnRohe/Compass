@@ -1,0 +1,21 @@
+{   
+        
+    "landmarks": [
+        {
+            "name": "Google Headquarters",
+            "latitude": 37.4221394,
+            "longitude": -122.08398
+        },
+        {
+            "name": "Fat Tuesday",
+            "latitude": 33.423424,
+            "longitude": -111.940183
+        },
+        
+        {
+            "name": "WP",
+            "latitude": 33.416558,
+            "longitude": -111.940183
+        }
+    ]
+}
