@@ -25,6 +25,7 @@ public final class R {
         public static final int ic_read_aloud=0x7f020002;
         public static final int ic_stop=0x7f020003;
         public static final int place_mark=0x7f020004;
+        public static final int place_marker_green=0x7f020005;
     }
     public static final class id {
         public static final int back_compass=0x7f0b0007;

@@ -92,6 +92,7 @@ public class CompassMenuActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+    	//TODO: FIX BACK TO COMPASS (CRASHES WHEN SELECTED FROM MAIN SCREEN)
         switch (item.getItemId()) {
         	case R.id.location_info:
         		mCompassService.displayText();

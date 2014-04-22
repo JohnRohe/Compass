@@ -51,14 +51,14 @@ public class CompassView extends View {
 
     /** Various dimensions and other drawing-related constants. */
     private static final float NEEDLE_WIDTH = 6;
-    private static final float NEEDLE_HEIGHT = 60;
+    private static final float NEEDLE_HEIGHT = 35;
     private static final int NEEDLE_COLOR = Color.RED;
     private static final float TICK_WIDTH = 2;
     private static final float TICK_HEIGHT = 10;
     private static final float DIRECTION_TEXT_HEIGHT = 45.0f;
-    private static final float PLACE_TEXT_HEIGHT = 22.0f;
-    private static final float PLACE_PIN_WIDTH = 14.0f;
-    private static final float PLACE_TEXT_LEADING = 4.0f;
+    private static final float PLACE_TEXT_HEIGHT = 30.0f;
+    private static final float PLACE_PIN_WIDTH = 37.0f;
+    private static final float PLACE_TEXT_LEADING = 150.0f;
     private static final float PLACE_TEXT_MARGIN = 8.0f;
 
     /**
@@ -136,7 +136,7 @@ public class CompassView extends View {
         mDistanceFormat.setMaximumFractionDigits(1);
 
         //TODO: If distance is "x" km away, display small, medium, or large "place_mark.png" pin 
-        mPlaceBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.place_mark);
+        mPlaceBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.place_marker_green);
 
         // We use NaN to indicate that the compass is being drawn for the first
         // time, so that we can jump directly to the starting orientation
