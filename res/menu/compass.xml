@@ -16,21 +16,20 @@
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/location_info"
+        android:title="@string/info"
+        android:icon="@drawable/ic_read_aloud"/>  
+    <item
         android:id="@+id/read_aloud"
         android:title="@string/read_aloud"
         android:icon="@drawable/ic_read_aloud"/>
     <item
+    	android:id="@+id/back_compass"
+        android:title="@string/back_compass"
+        android:icon="@drawable/ic_compass"/>
+    <item
         android:id="@+id/stop"
         android:title="@string/stop"
         android:icon="@drawable/ic_stop"/>
-    
-    <item
-        android:id="@+id/location_info"
-        android:title="Info"
-        android:icon="@drawable/ic_read_aloud"/>
-    
-    <item
-        android:id="@+id/back_compass"
-        android:title="Back to Compass"
-        android:icon="@drawable/ic_compass"/>
+
 </menu>

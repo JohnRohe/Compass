@@ -57,9 +57,9 @@ public class Landmarks {
      */
     public Landmarks(Context context) {
         mPlaces = new ArrayList<Place>();
-        mPlaces.add(new Place(33.3897724,-111.8692256, "Mesa Community College"));
-        mPlaces.add(new Place(33.416558,-111.93394,"WP"));
-        mPlaces.add(new Place(33.423424,-111.940183,"Fat Tuesday"));
+        //mPlaces.add(new Place(33.3897724,-111.8692256, "Mesa Community College","description"));
+        //mPlaces.add(new Place(33.416558,-111.93394,"WP","description"));
+        //mPlaces.add(new Place(33.423424,-111.940183,"Fat Tuesday","description"));
         
         
 
@@ -121,9 +121,10 @@ public class Landmarks {
         String name = object.optString("name");
         double latitude = object.optDouble("latitude", Double.NaN);
         double longitude = object.optDouble("longitude", Double.NaN);
+        String description = object.optString("description");
 
         if (!name.isEmpty() && !Double.isNaN(latitude) && !Double.isNaN(longitude)) {
-            return new Place(latitude, longitude, name);
+        	return new Place(latitude, longitude, name, description);
         } else {
             return null;
         }

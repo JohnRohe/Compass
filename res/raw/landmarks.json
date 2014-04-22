@@ -2,20 +2,23 @@
         
     "landmarks": [
         {
-            "name": "Google Headquarters",
-            "latitude": 37.4221394,
-            "longitude": -122.08398
+            "name": "Gammage Auditorium",
+            "latitude": 33.4163,
+            "longitude": -111.9381,
+            "description": "Considered to be the last public commission of architect Frank Lloyd Wright"
         },
         {
-            "name": "Fat Tuesday",
-            "latitude": 33.423424,
-            "longitude": -111.940183
+            "name": "Hayden Flour Mill",
+            "latitude": 33.4290667,
+            "longitude": -111.9392974,
+            "description": "A relic of our agricultural past that was crucial to the growth of Tempe"
         },
         
         {
-            "name": "WP",
-            "latitude": 33.416558,
-            "longitude": -111.940183
+            "name": "Sun Devil Stadium",
+            "latitude": 33.425716,
+            "longitude": -111.93284,
+            "description": "Also known as Frank Kush Field, this A.S.U. football stadium opened in 1958 and has a seating capacity of 71,706"
         }
     ]
 }

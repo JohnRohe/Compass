@@ -135,6 +135,7 @@ public class CompassView extends View {
         mDistanceFormat.setMinimumFractionDigits(0);
         mDistanceFormat.setMaximumFractionDigits(1);
 
+        //TODO: If distance is "x" km away, display small, medium, or large "place_mark.png" pin 
         mPlaceBitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.place_mark);
 
         // We use NaN to indicate that the compass is being drawn for the first
