@@ -46,6 +46,8 @@ public class CompassService extends Service {
 
     private static final String LIVE_CARD_TAG = "compass";
     
+    private static final Double MIN_DIST = .02;
+    
     private OrientationManager mOrientationManager;
     //private SensorModule mSensorModule;
     private Landmarks mLandmarks;
@@ -56,6 +58,7 @@ public class CompassService extends Service {
     private CompassRenderer mRenderer;
     private RemoteViews mRemoteViews;
     private boolean display_text = false;
+    private Place near;
     
    
 
@@ -129,7 +132,37 @@ public class CompassService extends Service {
     /**
      * A binder that gives other components access to the speech capabilities provided by the
      * service.
+     *
+     *
      */
+    
+    public Place atPlace(){
+    	double distanceKm;
+    	double latitude1;
+    	double longitude1;
+    	double latitude2;
+    	double longitude2;
+    	List<Place> nearbyPlaces = mRenderer.getNearbyPlaces();
+    	
+    	for(Place place : nearbyPlaces){
+    		latitude1 = mOrientationManager.getLocation().getLatitude();
+        	longitude1= mOrientationManager.getLocation().getLongitude();
+        	latitude2 = place.getLatitude();
+        	longitude2 = place.getLongitude();
+    		
+    		distanceKm = MathUtils.getDistance(latitude1, longitude1, latitude2,
+                    longitude2);
+    		
+    		
+    		
+    		if(distanceKm < MIN_DIST){
+    			return place;
+    		}
+    		
+    	}
+    	return null;
+    }
+    
     public class CompassBinder extends Binder {
         /**
          * Read the current heading aloud using the text-to-speech engine.
@@ -151,17 +184,33 @@ public class CompassService extends Service {
 
             String headingText = res.getString(headingFormat, roundedHeading, directionName);
             mSpeech.speak(headingText, TextToSpeech.QUEUE_FLUSH, null);*/
+        	//TODO: LiveCard needs to activities when we get to a location
+        	Place nearestPlace;
+        	String infoText;
+        	nearestPlace = atPlace();
+        	if(nearestPlace != null){
+        		infoText = nearestPlace.getDescription();
+        	}
+        	else{
+        		infoText = "No place nearby";
+        	}
+        	mSpeech.speak(infoText, TextToSpeech.QUEUE_FLUSH, null);
         }
         
         //Responsible for displaying text info for the location
         //Currently shown when "Info" activity is tapped
         public void displayText(){
         	//the text to be displayed and read on the screen
-        	String infoText = "This location contains information displayed here";
-        	
-        	//you can use a different layout then compass
-        	
-        	
+        	Place nearestPlace;
+        	String infoText;
+        	nearestPlace = atPlace();
+        	if(nearestPlace != null){
+        		infoText = nearestPlace.getDescription();
+        	}
+        	else{
+        		infoText = "No place nearby";
+        	}
+        	mSpeech.speak(infoText, TextToSpeech.QUEUE_FLUSH, null);
         	mLiveCard.unpublish();
         	//mLiveCard = null;
         	

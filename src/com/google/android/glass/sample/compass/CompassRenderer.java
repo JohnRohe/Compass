@@ -72,6 +72,7 @@ public class CompassRenderer implements DirectRenderingCallback {
     private final TextView mTipsView;
     private final OrientationManager mOrientationManager;
     private final Landmarks mLandmarks;
+    private List<Place> nearbyPlaces;
 
     private final OrientationManager.OnChangedListener mCompassListener =
             new OrientationManager.OnChangedListener() {
@@ -92,6 +93,7 @@ public class CompassRenderer implements DirectRenderingCallback {
             Location location = orientationManager.getLocation();
             List<Place> places = mLandmarks.getNearbyLandmarks(
                     location.getLatitude(), location.getLongitude());
+            nearbyPlaces = places;
             mCompassView.setNearbyPlaces(places);
         }
 
@@ -122,6 +124,10 @@ public class CompassRenderer implements DirectRenderingCallback {
         mCompassView.setOrientationManager(mOrientationManager);
     }
 
+    public List<Place> getNearbyPlaces(){
+    	return nearbyPlaces;
+    }
+    
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         mSurfaceWidth = width;
