@@ -42,6 +42,7 @@ public class CompassMenuActivity extends Activity {
     private CompassService.CompassBinder mCompassService;
     private boolean mAttachedToWindow;
     private boolean mOptionsMenuOpen;
+    private static boolean liveCardTextSelected = false;
 
     private ServiceConnection mConnection = new ServiceConnection() {
         @Override
@@ -89,19 +90,34 @@ public class CompassMenuActivity extends Activity {
         getMenuInflater().inflate(R.menu.compass, menu);
         return true;
     }
+    
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        // Allows us to customize the menus that are seen through different live cards
+    	if(liveCardTextSelected){
+    		
+    		menu.removeItem(R.id.location_info);
+    		menu.removeItem(R.id.read_aloud);
+    	}else{
+    		menu.removeItem(R.id.back_compass);
+    	}
+    	return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
     	//TODO: FIX BACK TO COMPASS (CRASHES WHEN SELECTED FROM MAIN SCREEN)
         switch (item.getItemId()) {
         	case R.id.location_info:
-        		mCompassService.displayText();
+        		liveCardTextSelected = true;
+        		mCompassService.displayText();      		
         		return true;
             case R.id.read_aloud:
                 mCompassService.readHeadingAloud();
                 return true;
             case R.id.back_compass:
             	mCompassService.backToCompass();
+            	liveCardTextSelected = false;
             	return true;
             case R.id.stop:
                 // Stop the service at the end of the message queue for proper options menu

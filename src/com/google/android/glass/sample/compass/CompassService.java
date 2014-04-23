@@ -209,11 +209,13 @@ public class CompassService extends Service {
         	else{
         		infoText = "No place nearby";
         	}
+        	
+        	//temporary text for presentation
+        	infoText = "Also known as Frank Kush Field, this football stadium opened in 1958 and has a seating capacity of 71,706. It is home to the Arizona State Sun Devils, of the Pacific-12 Conference.";
 
         	mSpeech.speak(infoText, TextToSpeech.QUEUE_FLUSH, null);
         	
         	mLiveCard.unpublish();
-        	//mLiveCard = null;
         	
         	mRemoteViews.setTextViewText(R.id.textView1, infoText);
         	mLiveCard2.setViews(mRemoteViews);
@@ -250,6 +252,11 @@ public class CompassService extends Service {
         if (mLiveCard != null && mLiveCard.isPublished()) {
             mLiveCard.unpublish();
             mLiveCard = null;
+        }
+        
+        if (mLiveCard2 != null && mLiveCard2.isPublished()) {
+            mLiveCard2.unpublish();
+            mLiveCard2 = null;
         }
 
         mSpeech.shutdown();

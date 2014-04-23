@@ -9,8 +9,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:text="Location Info"
+        android:layout_marginTop="5dp"
+        android:text="Sun Devil Stadium"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -19,9 +19,12 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
         android:maxLines="5"
         android:scrollbars="vertical"
         android:text=""
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>

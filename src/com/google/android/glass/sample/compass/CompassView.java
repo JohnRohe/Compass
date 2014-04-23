@@ -239,18 +239,18 @@ public class CompassView extends View {
                 String direction = mDirections[MathUtils.mod(i, mDirections.length)];
                 mPaint.getTextBounds(direction, 0, direction.length(), mTextBounds);
 
-                /*
-                canvas.drawText(direction,
-                        i * degreesPerTick * pixelsPerDegree - mTextBounds.width() / 2,
-                        mTextBounds.height() / 2, mPaint);*/
                 
                 canvas.drawText(direction,
                         i * degreesPerTick * pixelsPerDegree - mTextBounds.width() / 2,
                         160, mPaint);
             } else {
                 // Draw a tick mark for the odd indices.
-                canvas.drawLine(i * degreesPerTick * pixelsPerDegree, -TICK_HEIGHT / 2, i
-                        * degreesPerTick * pixelsPerDegree, TICK_HEIGHT / 2, mTickPaint);
+               
+            	/*canvas.drawLine(i * degreesPerTick * pixelsPerDegree, -TICK_HEIGHT / 2, i
+                        * degreesPerTick * pixelsPerDegree, TICK_HEIGHT / 2, mTickPaint); */
+            	
+            	canvas.drawLine(i * degreesPerTick * pixelsPerDegree, 130, i
+                        * degreesPerTick * pixelsPerDegree, 160, mTickPaint);
             }
         }
     }
